@@ -15,12 +15,16 @@ s3fs ${BUCKET} /s3bucket ${S3FS_OPTS}
 
 if [ ! -z "$TARGET" ]
 then
-cp -r /s3bucket/* $TARGET
+echo "copy from S3 Bucket: $BUCKET ..."
+cp -v -r /s3bucket/* $TARGET
+echo "copy from S3 Bucket: $BUCKET finished"
 fi
 
 if [ ! -z "$SOURCE" ]
 then
-cp -r $SOURCE /s3bucket/
+echo "copy to S3 Bucket: $BUCKET ..."
+cp -v -r $SOURCE /s3bucket/
+echo "copy tp S3 Bucket: $BUCKET finished"
 fi
 
 if [ -z "$TARGET" ] && [ -z "$SOURCE" ]
