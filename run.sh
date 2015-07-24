@@ -39,7 +39,7 @@ then
     echo ""
     echo "executing S3CMD: $S3CMD ..."
     echo ""
-    $S3CMD
+    eval $S3CMD
     if [ $? -eq 0 ]
     then
 	echo ""
@@ -54,5 +54,5 @@ fi
 
 if [ -z "$TARGET" ] && [ -z "$SOURCE" ] && [ -z "$S3CMD" ]
 then
-sleep infinity
+    sleep infinity
 fi
